@@ -1,0 +1,63 @@
+### R Markdown Doku
+
+
+> "Blockquotes werden nach dem Zeichen '>' geschrieben.  
+   Hello hello"
+>
+> --- Daniel Smith
+
+
+#### Other language engines
+
+A less well-known fact about R Markdown is that many other languages are also supported, such as Python, Julia, C++, and SQL. The support comes from the knitr package, which has provided a large number of language engines. Language engines are essentially functions registered in the object knitr::knit_engine. You can list the names of all available engines via:
+
+```{r}
+names(knitr::knit_engines$get())
+```
+
+
+##### Python
+
+The python engine is based on the reticulate package (Ushey, Allaire, and Tang 2023), which makes it possible to execute all Python code chunks in the same Python session. If you actually want to execute a certain code chunk in a new Python session, you may use the chunk option python.reticulate = FALSE. If you are using a knitr version lower than 1.18, you should update your R packages.
+
+
+```{python}
+x = 'hello, python world!'
+print(x.split(' '))
+```
+
+
+
+##### SQL
+
+The sql engine uses the DBI package to execute SQL queries, print their results, and optionally assign the results to a data frame.
+
+To use the sql engine, you first need to establish a DBI connection to a database (typically via the DBI::dbConnect() function). You can make use of this connection in a sql chunk via the connection option. For example:
+
+<!-- ```{r} -->
+<!-- library(DBI) -->
+<!-- db = dbConnect(RSQLite::SQLite(), dbname = "sql.sqlite") -->
+<!-- data(cars) -->
+<!-- dbWriteTable(db, "CarTable", cars) -->
+<!-- dbListTables(db) -->
+<!-- ``` -->
+
+<!-- ```{sql, connection=db} -->
+<!-- SELECT * FROM CarTable; -->
+<!-- ``` -->
+
+
+
+#### Tabbed sections {.tabset .tabset-fade .tabset-pills}
+
+You can organize content using tabs by applying the .tabset class attribute to headers within a document. This will cause all sub-headers of the header with the .tabset attribute to appear within tabs rather than as standalone sections. For example:
+
+##### .tabset-fade
+
+You can also specify two additional attributes to control the appearance and behavior of the tabs. The .tabset-fade attribute causes the tabs to fade in and out when switching between tabs.
+
+
+##### .tabset-pills
+
+The .tabset-pills attribute causes the visual appearance of the tabs to be “pill” rather than traditional tabs.
+

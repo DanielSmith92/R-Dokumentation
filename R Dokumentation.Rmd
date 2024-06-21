@@ -1,0 +1,68 @@
+---
+title: "R Dokumentation"
+author: "Daniel Smith"
+date: "2024-06-21"
+output: 
+  html_document:
+    toc: TRUE
+    toc_depth: 3
+    toc_float: 
+      collapsed: FALSE
+      smooth_scroll: TRUE
+    number_sections: FALSE
+    theme: united
+    highlight: tango
+    
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+# Einleitung
+
+Ein paar hilfreiche Infos zur Erstellung des R Markdowns findet man unter 'R Markdown Doku'.
+ 
+
+## Nützlich {.tabset .tabset-fade .tabset-pills}
+
+### Literatur 
+
+[Buch: Advanced R (second edition)](https://adv-r.hadley.nz/)
+
+[Tidyverse Style](https://style.tidyverse.org/index.html)
+
+[rlang](https://rlang.r-lib.org/) Provides a clean interface to low-level data structures and operations
+
+[Shiny](https://shiny.posit.co/) Easy web apps for data science without the compromises
+
+[R for Data Science](https://r4ds.hadley.nz/) Introduction to Tidyverse
+
+```{r, child=c('child documents/RMarkdown.Rmd')}
+```
+
+
+### Online Communities
+
+[RStudio Community](https://stackoverflow.com/)
+
+
+
+# Part 1: Foundations {.tabset .tabset-fade .tabset-pills}
+
+- Names and values
+- Vectors  
+
+```{r, child=c('child documents/Part 1/1_names and values.Rmd')}
+```
+
+
+```{r, child=c('child documents/Part 1/2_vectors.Rmd')}
+```
+
+
+
+
+
